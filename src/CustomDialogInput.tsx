@@ -52,7 +52,7 @@ export const CustomDialogInput: FC<CustomDialogInputProps> = ({
       >
         <View
           style={{
-            backgroundColor: backgroundColor ? backgroundColor : "#AAD9BB",
+            backgroundColor: backgroundColor ? backgroundColor : "#FFFFFF",
             height: "auto",
             width: "90%",
             borderRadius: 10,
