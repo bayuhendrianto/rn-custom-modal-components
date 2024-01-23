@@ -106,7 +106,7 @@ import { ReactNativeAlert } from "rn-custom-modal-components";
     children: ReactNode;
 </pre>
 <hr>
-<h2 style="color:darkgreen;">Code for above screenshots</h2>
+<h2 style="color:darkgreen;">Code for Alert Component</h2>
 
 ```js
 import { StatusBar } from "expo-status-bar";
@@ -168,6 +168,168 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+```
+<hr/>
+
+<h2 style="color:darkgreen;">Code for Dialog Component</h2>
+
+```js
+import { StatusBar } from "expo-status-bar";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+
+import { ReactNativeDialog } from "rn-custom-modal-components";
+
+export default function App() {
+  const [visible, setVisible] = useState(false);
+
+  const onConfirm = () => {
+    setVisible(false);
+  };
+
+  return (
+    <View style={styles.container}>
+      <ReactNativeDialog
+        visible={visible}
+        onVisible={setVisible}
+        message={
+          <>
+            <Text>React Native Dialog !</Text>
+          </>
+        }
+        onConfirm={onConfirm}
+      />
+
+      <Pressable
+        onPress={() => setVisible(true)}
+        style={{
+          width: "80%",
+          height: 50,
+          padding: 8,
+          borderRadius: 10,
+          backgroundColor: "blue",
+        }}
+      >
+        <Text
+          style={{
+            color: "white",
+            textAlign: "center",
+            fontSize: 22,
+          }}
+        >
+          Open Dialog Input
+        </Text>
+      </Pressable>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+
+
+```
+<hr/>
+
+<h2 style="color:darkgreen;">Code for Dialog Input Component</h2>
+
+```js
+import { StatusBar } from "expo-status-bar";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { useState } from "react";
+import { ReactNativeDialogInput } from "rn-custom-modal-components";
+
+export default function App() {
+  const [visible, setVisible] = useState(false);
+
+  const onConfirm = () => {
+    setVisible(false);
+  };
+
+  const CustomInput = () => {
+    return (
+      <View style={{ padding: 15, marginBottom: 10 }}>
+        <Text style={{ margin: 12, marginBottom: -18, color: "#000000" }}>
+          Comment
+        </Text>
+        <TextInput
+          placeholder="add your comment here..."
+          textAlignVertical="top"
+          multiline
+          style={{
+            height: 100,
+            margin: 12,
+            borderBottomWidth: 3,
+            borderBottomColor: "#000000",
+            color: "#FFFFFF",
+            fontSize: 22,
+            fontWeight: "700",
+          }}
+        />
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <ReactNativeDialogInput
+        visible={visible}
+        onVisible={setVisible}
+        isMessage
+        messagePosition="center"
+        messageFontSize={22}
+        message={
+          <>
+            <Text>React Native Dialog !</Text>
+          </>
+        }
+        onConfirm={onConfirm}
+        children={<CustomInput />}
+        backgroundColor="#FFF8E3"
+      />
+
+      <Pressable
+        onPress={() => setVisible(true)}
+        style={{
+          width: "80%",
+          height: 50,
+          padding: 8,
+          borderRadius: 10,
+          backgroundColor: "blue",
+        }}
+      >
+        <Text
+          style={{
+            color: "white",
+            textAlign: "center",
+            fontSize: 22,
+          }}
+        >
+          Open Dialog Input
+        </Text>
+      </Pressable>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+
 
 ```
 <hr/>
